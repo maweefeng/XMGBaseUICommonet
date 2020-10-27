@@ -7,7 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-
+#import <UIKit/UIKit.h>
 
 @interface CALayer (XMGXibBorderColor)
 
