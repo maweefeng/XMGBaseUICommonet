@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension Date {
+public extension Date {
     func xmg_dateToString(_ dateFormat:String = "yyyy-MM-dd HH:mm:ss") -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = dateFormat

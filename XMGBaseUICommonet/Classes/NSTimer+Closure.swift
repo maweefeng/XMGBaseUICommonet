@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Timer {
+public extension Timer {
     /**
      Creates and schedules a one-time `NSTimer` instance.
      

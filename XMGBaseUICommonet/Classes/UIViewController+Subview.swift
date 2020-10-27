@@ -9,18 +9,18 @@
 import UIKit
 import MMPopupView
 
-extension UIViewController {
+public extension UIViewController {
     
 
     
-    func xmg_turnToViewController(_ targetVC : UIViewController?){
+     func xmg_turnToViewController(_ targetVC : UIViewController?){
         if let tempVC = targetVC {
             tempVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(tempVC, animated: true)
         }
     }
 
-    @objc func xmg_back () {
+     @objc func xmg_back () {
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -28,7 +28,7 @@ extension UIViewController {
     /// 返回到指定的vc
     ///
     /// - Parameter targetVC: 元类型
-    func xmg_backToTargetViewController (_ targetVC:AnyClass) {
+     func xmg_backToTargetViewController (_ targetVC:AnyClass) {
         for VC in (self.navigationController?.viewControllers)! {
             if VC.isKind(of: targetVC)  {
                 self.navigationController?.popToViewController(VC, animated: true)
@@ -37,7 +37,7 @@ extension UIViewController {
         }
     }
     
-    func xmg_backToFrontTargetViewController (_ index:Int) {
+     func xmg_backToFrontTargetViewController (_ index:Int) {
         if let allNum = self.navigationController?.viewControllers.count{
             var Newindex:Int = allNum - index - 1
             if Newindex < 0{
@@ -54,7 +54,7 @@ extension UIViewController {
     
     
     ///点击评论 自己或者对方
-    func xmg_showSubSheetView(_ isMe:Bool,confirm:@escaping (_ index:Int)->()){
+     func xmg_showSubSheetView(_ isMe:Bool,confirm:@escaping (_ index:Int)->()){
         let block:(Int)->Void = {(index) in
             
             confirm(index)
@@ -76,7 +76,7 @@ extension UIViewController {
     
     
     ///点击评论 自己或者对方
-    func xmg_showSheetView(_ isMe:Bool,confirm:@escaping (_ index:Int)->()){
+     func xmg_showSheetView(_ isMe:Bool,confirm:@escaping (_ index:Int)->()){
         let block:(Int)->Void = {(index) in
             
             confirm(index)
@@ -96,7 +96,7 @@ extension UIViewController {
     }
     
     
-    func xmg_showTipAlertView(_ tipString:String, confirm:@escaping ()->()){
+     func xmg_showTipAlertView(_ tipString:String, confirm:@escaping ()->()){
         let block:(Int)->Void = {(index) in
             if index == 1 {
                 confirm()
@@ -111,7 +111,7 @@ extension UIViewController {
         alertView?.show()
     }
     
-    func xmg_showProblemAlertView(_ tipString:String, confirm:@escaping ()->()){
+     func xmg_showProblemAlertView(_ tipString:String, confirm:@escaping ()->()){
         let block:(Int)->Void = {(index) in
             if index == 1 {
                 confirm()

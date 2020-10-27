@@ -9,7 +9,7 @@
 
 import UIKit
 
-extension UILabel{
+public extension UILabel{
 
     func xmg_setDeleteText(_ text:String,_ color:UIColor = UIColor.textColor999, _ font:UIFont = UIFont.systemFont(ofSize: 10, weight: .medium)){
         self.attributedText = text.xmg_changePartOfStringStyleWithDeleteLine(text, color: color, font: font)

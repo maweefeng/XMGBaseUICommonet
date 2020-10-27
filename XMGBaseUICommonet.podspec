@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
   # 名称，pod search搜索的关键词,注意这里一定要和pod spec create XMGBaseUICommonet中的名称一样,否则报错
   spec.name         = "XMGBaseUICommonet"
   # 版本号
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   # 库的简介
   spec.summary      = "为了用户体验，自己封装了一些UIKit工具库方便使用"
   # 库的描述
@@ -19,7 +19,7 @@ Pod::Spec.new do |spec|
   # 项目的地址（这个必须写正确）
   # 其他关联方式
   # 将这个Pod版本与Git仓库中某个commit绑定
-  spec.source       = { :git => "https://github.com/maweefeng/BaseUICommponet.git", :tag => spec.version }
+  spec.source       = { :git => "https://github.com/maweefeng/XMGBaseUICommonet.git", :tag => spec.version }
   # 需要包含的源文件
   # 源文件的其他写法
   # *匹配所有文件
@@ -43,6 +43,13 @@ Pod::Spec.new do |spec|
   # 依赖库，不能依赖未发布的库
   spec.dependency  'SnapKit','~> 5.0.1'
   spec.dependency  'pop','~> 1.0.12'
-
+    spec.dependency  'SDWebImage','5.2.3'
+   #头像居中
+     spec.dependency 'FaceAware','2.1.0'
+     spec.dependency 'MJRefresh','3.2.0'
+   #弹出框
+     spec.dependency 'MMPopupView','1.7.2'
+   #空白页展示
+     spec.dependency 'DZNEmptyDataSet'
 end
 

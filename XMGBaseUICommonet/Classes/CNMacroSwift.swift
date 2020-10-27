@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-var XMGColorWithHex: (NSInteger) -> UIColor = {hex in
+public var XMGColorWithHex: (NSInteger) -> UIColor = {hex in
     return XMGColorWithHexA(hex, 1)
 }
 
-var XMGColorWithHexA: (NSInteger, CGFloat) -> UIColor = {(hex, alpha) in
+public var XMGColorWithHexA: (NSInteger, CGFloat) -> UIColor = {(hex, alpha) in
     let red = ((CGFloat)((hex & 0xFF0000) >> 16)) / 255.0
     let green = ((CGFloat)((hex & 0xFF00) >> 8)) / 255.0
     let blue = ((CGFloat)(hex & 0xFF)) / 255.0
@@ -20,7 +20,7 @@ var XMGColorWithHexA: (NSInteger, CGFloat) -> UIColor = {(hex, alpha) in
     return UIColor(red: red , green: green, blue: blue, alpha: alpha)
 }
 
-var XMGRGBAColor: (CGFloat, CGFloat, CGFloat, CGFloat) -> UIColor = {red, green, blue, alpha in
+public var XMGRGBAColor: (CGFloat, CGFloat, CGFloat, CGFloat) -> UIColor = {red, green, blue, alpha in
     return UIColor(red: red / 255, green: green / 255, blue: blue / 255, alpha: alpha)
 }
 
@@ -28,10 +28,10 @@ var XMGRGBAColor: (CGFloat, CGFloat, CGFloat, CGFloat) -> UIColor = {red, green,
 
 // MARK: - 常用宽高
 /// 屏幕Bounds
-let XMGKScreenBounds = UIScreen.main.bounds
+public let XMGKScreenBounds = UIScreen.main.bounds
 /// 屏幕高度
-let XMGScreenHeight = UIScreen.main.bounds.size.height
+public let XMGScreenHeight = UIScreen.main.bounds.size.height
 /// 屏幕宽度
-let XMGScreenWidth = UIScreen.main.bounds.size.width
+public let XMGScreenWidth = UIScreen.main.bounds.size.width
 
 

@@ -11,7 +11,7 @@ import UIKit
 
 extension UIView{
     
-    func xmg_addGradientLayer(colors:[CGColor]){
+    public func xmg_addGradientLayer(colors:[CGColor]){
         self.layer.sublayers?.removeAll(where: {$0.xmg_className == "CAGradientLayer"})
         
         let gradient = CAGradientLayer()
@@ -24,14 +24,14 @@ extension UIView{
         
     }
     
-    func xmg_addShadowLayer(shadowColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.08),radius:CGFloat = 5){
+    public func xmg_addShadowLayer(shadowColor:UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.08),radius:CGFloat = 5){
         self.layer.shadowColor = shadowColor.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 2)
         self.layer.shadowOpacity = 1
         self.layer.shadowRadius = radius
     }
     
-    func xmg_drawDottedLine(color:UIColor)->CAShapeLayer{
+    public func xmg_drawDottedLine(color:UIColor)->CAShapeLayer{
         self.layer.sublayers?.removeAll(where: {$0.xmg_className == "CAShapeLayer"})
 
         let shapeLayer:CAShapeLayer = CAShapeLayer()

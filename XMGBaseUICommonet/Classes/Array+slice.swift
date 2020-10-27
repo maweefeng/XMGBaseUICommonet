@@ -7,7 +7,7 @@
 //
 
 import Foundation
-extension Sequence {
+public extension Sequence {
     
     /// 将一个数组当中的元素进行等间距分隔成很多数组
     /// - Parameter clumpsize: 每个数组分开的元素个数

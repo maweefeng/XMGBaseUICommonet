@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-extension UIView{
+public extension UIView{
     /// 添加红点
     /// - Parameter sideLength: 红点的边长
     func xmg_addRedDot(sideLength:CGFloat = 5){

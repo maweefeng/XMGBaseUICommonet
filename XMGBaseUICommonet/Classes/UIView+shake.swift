@@ -7,7 +7,7 @@
 //
 
 import UIKit
-extension UIView{
+public extension UIView{
     
     func xmg_shake() {
         let impact = UIImpactFeedbackGenerator(style: .light)

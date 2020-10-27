@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 import JavaScriptCore
-class XMGBaseWebViewController: XMGBaseViewController {
+public class XMGBaseWebViewController: XMGBaseViewController {
     lazy private var progressView: UIProgressView = {
         let progress = UIProgressView.init(frame: CGRect(x: CGFloat(0), y: CGFloat(0), width: UIScreen.main.bounds.width, height: 2))
         progress.tintColor = UIColor.green
@@ -24,7 +24,7 @@ class XMGBaseWebViewController: XMGBaseViewController {
         destionationUrl = destinationURL
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         let configuration = WKWebViewConfiguration()
@@ -51,7 +51,7 @@ class XMGBaseWebViewController: XMGBaseViewController {
         webView.addObserver(self, forKeyPath: "title", options: .new, context: nil)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         webView.removeObserver(self, forKeyPath: "estimatedProgress")
         webView.removeObserver(self, forKeyPath: "title")
@@ -59,7 +59,7 @@ class XMGBaseWebViewController: XMGBaseViewController {
     
 
     //添加观察者方法
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
             
             //设置进度条
             if keyPath == "estimatedProgress"{

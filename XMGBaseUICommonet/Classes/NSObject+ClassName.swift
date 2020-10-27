@@ -22,11 +22,11 @@ public func XMGGetClassFromString(_ stringName: String) -> AnyClass? {
 }
 
 extension NSObject {
-    var xmg_className: String {
+    public var xmg_className: String {
         return String(describing: type(of: self)).components(separatedBy: ".").last!
     }
     
-    class var xmg_className: String {
+    public class var xmg_className: String {
         return String(describing: self).components(separatedBy: ".").last!
     }
 }

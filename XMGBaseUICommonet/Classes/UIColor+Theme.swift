@@ -11,7 +11,7 @@ import UIKit
 extension UIColor {
     
     //返回随机颜色
-    class var xmg_randomColor: UIColor {
+    public class var xmg_randomColor: UIColor {
         get {
             let red = CGFloat(arc4random()%256)/255.0
             let green = CGFloat(arc4random()%256)/255.0
@@ -32,17 +32,17 @@ extension UIColor {
     }
     
     // MARK: Public
-    static let themeColor = XMGColorWithHex(0xEE6B00)
-    static let borderColor = XMGColorWithHex(0xE5E5EA)
-    static let backgroundColor = XMGColorWithHex(0xF5F5F5)
-    static let scoreColor = xmg_rgb(255, 193, 45)
-    static let textColor = XMGColorWithHex(0x1A1A1A)
-    static let playerBackgroundColor = xmg_rgb(84, 77, 126)
-    static let brightPlayerBackgroundColor = xmg_rgba(101, 88, 156, 0.5)
+    public static let themeColor = XMGColorWithHex(0xEE6B00)
+    public static let borderColor = XMGColorWithHex(0xE5E5EA)
+    public static let backgroundColor = XMGColorWithHex(0xF5F5F5)
+    public static let scoreColor = xmg_rgb(255, 193, 45)
+    public static let textColor = XMGColorWithHex(0x1A1A1A)
+    public static let playerBackgroundColor = xmg_rgb(84, 77, 126)
+    public static let brightPlayerBackgroundColor = xmg_rgba(101, 88, 156, 0.5)
     
-    static let textColor333 = XMGColorWithHex(0x333333)
-    static let textColor666 = XMGColorWithHex(0x666666)
-    static let textColor999 = XMGColorWithHex(0x999999)
+    public static let textColor333 = XMGColorWithHex(0x333333)
+    public static let textColor666 = XMGColorWithHex(0x666666)
+    public static let textColor999 = XMGColorWithHex(0x999999)
     
-    static let lineColor = XMGColorWithHex(0xe6e6e6)
+    public static let lineColor = XMGColorWithHex(0xe6e6e6)
 }

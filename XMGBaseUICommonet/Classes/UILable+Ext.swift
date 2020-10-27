@@ -11,7 +11,7 @@ extension UILabel {
  
     
     /// 为UILabel显示的文本加下划线
-    func xmg_underline() {
+    public func xmg_underline() {
  
         if let textString = self.text {
             let attributedString = NSMutableAttributedString(string: textString)

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class XMGBaseViewController: UIViewController {
+public class XMGBaseViewController: UIViewController {
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

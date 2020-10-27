@@ -44,7 +44,7 @@ extension UIButton {
 //        return bounds.contains(point)
 //    }
     
-    func xmg_changeState(controlState:UIControl.State = .normal){
+    public func xmg_changeState(controlState:UIControl.State = .normal){
         if controlState == .disabled {
             self.isUserInteractionEnabled = false
             self.titleLabel?.alpha = 0.4
@@ -54,7 +54,7 @@ extension UIButton {
         }
         
     }
-    func xmg_setImageUrl(_ url:String?, controlState:UIControl.State = .normal, placeholderImage:UIImage? = UIImage(named: "tupian")){
+    public func xmg_setImageUrl(_ url:String?, controlState:UIControl.State = .normal, placeholderImage:UIImage? = UIImage(named: "tupian")){
         guard let urlString = url else {
             self.setImage(placeholderImage, for: controlState)
             return

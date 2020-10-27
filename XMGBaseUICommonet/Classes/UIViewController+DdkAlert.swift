@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIViewController{
+public extension UIViewController{
     //弹框:UIAlertController 提示信息
     func xmg_showAlert(_ title:String,_ tip:String?="",_ sure:(()->())?){
         let alertController = UIAlertController(title: title,

@@ -11,7 +11,7 @@ import UIKit
 
 extension UICollectionView{
     ///无闪烁刷新单个Item
-    func xmg_reloadSingleSection(index:Int){
+    public func xmg_reloadSingleSection(index:Int){
         
         UIView.animate(withDuration: 0) {
             self.performBatchUpdates({
@@ -21,7 +21,7 @@ extension UICollectionView{
     }
     
     ///无闪烁刷新单个Item
-    func xmg_reloadSingleItem(indexPath:IndexPath){
+    public func xmg_reloadSingleItem(indexPath:IndexPath){
         
         UIView.animate(withDuration: 0) {
             self.performBatchUpdates({

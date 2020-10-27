@@ -13,7 +13,7 @@ extension Data {
     ///
     /// - returns: `String` representation of this `Data` object.
     ///Data to Hex String
-    func xmg_hexadecimal() -> String {
+    public func xmg_hexadecimal() -> String {
         return map { String(format: "%02x", $0) }
             .joined(separator: "")
     }

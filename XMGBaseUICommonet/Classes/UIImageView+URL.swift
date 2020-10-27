@@ -11,7 +11,7 @@ import SDWebImage
 import FaceAware
 import AVFoundation
 
-extension UIImageView {
+public extension UIImageView {
     func xmg_setImageUrl(_ url:String?, placeholderImage:UIImage? = UIImage(named: "tupian")){
         guard let urlString = url else {
             self.image = placeholderImage
