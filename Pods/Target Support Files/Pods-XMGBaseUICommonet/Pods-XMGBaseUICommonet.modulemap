@@ -1,0 +1,6 @@
+framework module Pods_XMGBaseUICommonet {
+  umbrella header "Pods-XMGBaseUICommonet-umbrella.h"
+
+  export *
+  module * { export * }
+}
