@@ -7,7 +7,7 @@
 //
 
 import UIKit
-enum XButtonEdgeInsetsStyle {
+public enum XButtonEdgeInsetsStyle {
     case ImageTop //图片在上，文字在下
     case ImageLeft //图片在上，文字在下
     case ImageBottom //图片在上，文字在下
@@ -31,18 +31,18 @@ extension UIButton {
         }
     }
     // 重写系统方法修改点击区域
-//    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-//        super.point(inside: point, with: event)
-//        var bounds = self.bounds
-//        if (hw_clickEdgeInsets != nil) {
-//            let x: CGFloat = -(hw_clickEdgeInsets?.left ?? 0)
-//            let y: CGFloat = -(hw_clickEdgeInsets?.top ?? 0)
-//            let width: CGFloat = bounds.width + (hw_clickEdgeInsets?.left ?? 0) + (hw_clickEdgeInsets?.right ?? 0)
-//            let height: CGFloat = bounds.height + (hw_clickEdgeInsets?.top ?? 0) + (hw_clickEdgeInsets?.bottom ?? 0)
-//            bounds = CGRect(x: x, y: y, width: width, height: height) //负值是方法响应范围
-//        }
-//        return bounds.contains(point)
-//    }
+    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        super.point(inside: point, with: event)
+        var bounds = self.bounds
+        if (xmg_hw_clickEdgeInsets != nil) {
+            let x: CGFloat = -(xmg_hw_clickEdgeInsets?.left ?? 0)
+            let y: CGFloat = -(xmg_hw_clickEdgeInsets?.top ?? 0)
+            let width: CGFloat = bounds.width + (xmg_hw_clickEdgeInsets?.left ?? 0) + (xmg_hw_clickEdgeInsets?.right ?? 0)
+            let height: CGFloat = bounds.height + (xmg_hw_clickEdgeInsets?.top ?? 0) + (xmg_hw_clickEdgeInsets?.bottom ?? 0)
+            bounds = CGRect(x: x, y: y, width: width, height: height) //负值是方法响应范围
+        }
+        return bounds.contains(point)
+    }
     
     public func xmg_changeState(controlState:UIControl.State = .normal){
         if controlState == .disabled {
@@ -70,7 +70,7 @@ extension UIButton {
      *  如果只有title，那它上下左右都是相对于button的，image也是一样；
      *  如果同时有image和label，那这时候image的上左下是相对于button，右边是相对于label的；title的上右下是相对于button，左边是相对于image的。
      */
-    func xmg_layoutButtonWithEdgInsetStyle(_ style: XButtonEdgeInsetsStyle,_ space:CGFloat){
+    public func xmg_layoutButtonWithEdgInsetStyle(_ style: XButtonEdgeInsetsStyle,_ space:CGFloat){
         //获取image宽高
         let imageW = self.imageView?.frame.size.width
         let imageH = self.imageView?.frame.size.height
@@ -105,7 +105,7 @@ extension UIButton {
         
     }
     
-    func xmg_setDoubleLineButton(text:String,placeHolder:String){
+    public func xmg_setDoubleLineButton(text:String,placeHolder:String){
         let secondstr = "\(text)\n\(placeHolder)"
         //        let paragraphStyle = NSMutableParagraphStyle()
         //        paragraphStyle.lineSpacing = 5; // 字体的行间距
@@ -117,7 +117,7 @@ extension UIButton {
         
     }
     
-    func xmg_setWhiteDoubleLineButton(text:String,placeHolder:String){
+    public func xmg_setWhiteDoubleLineButton(text:String,placeHolder:String){
         let secondstr = "\(text)\n\(placeHolder)"
         let secondattrstr = secondstr.xmg_changePartOfStringStyle(placeHolder, color: XMGColorWithHex(0xffffff),font: .systemFont(ofSize: 10))
         self.setAttributedTitle(secondattrstr, for: .normal)
@@ -126,7 +126,7 @@ extension UIButton {
         
     }
     
-    func xmg_newsetWhiteDoubleLineButton(text:String,placeHolder:String){
+    public func xmg_newsetWhiteDoubleLineButton(text:String,placeHolder:String){
         let secondstr = "\(text)\n\(placeHolder)"
         let secondattrstr = secondstr.xmg_changePartOfStringStyle(placeHolder, color: XMGColorWithHex(0x999999),font: .systemFont(ofSize: 12, weight: .medium))
         self.setAttributedTitle(secondattrstr, for: .normal)
