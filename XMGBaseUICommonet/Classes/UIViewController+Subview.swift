@@ -10,9 +10,7 @@ import UIKit
 import MMPopupView
 
 public extension UIViewController {
-    
 
-    
      func xmg_turnToViewController(_ targetVC : UIViewController?){
         if let tempVC = targetVC {
             tempVC.hidesBottomBarWhenPushed = true

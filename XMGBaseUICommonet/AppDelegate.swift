@@ -1,9 +1,4 @@
-//
-//  AppDelegate.swift
-//  XMGBaseUICommonet
-//
-//  Created by 尚软科技 on 2020/10/27.
-//
+
 
 import UIKit
 

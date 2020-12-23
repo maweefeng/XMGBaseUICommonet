@@ -1,10 +1,4 @@
-//
-//  Data+.swift
-//  BaseUICommponet
-//
-//  Created by 尚软科技 on 2020/8/27.
-//  Copyright © 2020 小马科技. All rights reserved.
-//
+
 
 import Foundation
 extension Data {

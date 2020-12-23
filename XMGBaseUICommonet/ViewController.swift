@@ -1,9 +1,4 @@
-//
-//  ViewController.swift
-//  XMGBaseUICommonet
-//
-//  Created by 尚软科技 on 2020/10/27.
-//
+
 
 import UIKit
 
@@ -14,6 +9,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    
+    @IBAction func click(sender:UIButton){
+        let vc = ImageScaleTVC()
+        self.xmg_turnToViewController(vc)
+    }
 
+    
+    
 }
 

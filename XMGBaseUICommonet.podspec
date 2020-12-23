@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
   # 名称，pod search搜索的关键词,注意这里一定要和pod spec create XMGBaseUICommonet中的名称一样,否则报错
   spec.name         = "XMGBaseUICommonet"
   # 版本号
-  spec.version      = "1.0.2"
+  spec.version      = "1.0.3"
   # 库的简介
   spec.summary      = "为了用户体验，自己封装了一些UIKit工具库方便使用"
   # 库的描述

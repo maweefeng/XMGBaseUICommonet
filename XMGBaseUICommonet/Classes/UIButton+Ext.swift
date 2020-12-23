@@ -1,10 +1,4 @@
-//
-//  UIButton+URL.swift
-//  MainProject
-//
-//  Created by 尚软科技 on 2018/10/16.
-//  Copyright © 2018 cnsunrun. All rights reserved.
-//
+
 
 import UIKit
 public enum XButtonEdgeInsetsStyle {

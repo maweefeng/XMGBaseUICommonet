@@ -1,10 +1,4 @@
-//
-//  NSLayoutConstraint+Mutiper.swift
-//  MainProject
-//
-//  Created by 尚软科技 on 2020/4/16.
-//  Copyright © 2020 cnsunrun. All rights reserved.
-//
+
 
 import Foundation
 import UIKit

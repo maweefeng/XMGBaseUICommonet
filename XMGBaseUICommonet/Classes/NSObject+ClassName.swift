@@ -21,12 +21,12 @@ public func XMGGetClassFromString(_ stringName: String) -> AnyClass? {
     return childVcClass
 }
 
-extension NSObject {
-    public var xmg_className: String {
+public extension NSObject {
+    var xmg_className: String {
         return String(describing: type(of: self)).components(separatedBy: ".").last!
     }
     
-    public class var xmg_className: String {
+    class var xmg_className: String {
         return String(describing: self).components(separatedBy: ".").last!
     }
 }

@@ -1,10 +1,4 @@
-//
-//  TimeInterval+VideoDate.swift
-//  MainProject
-//
-//  Created by 尚软科技 on 2019/12/3.
-//  Copyright © 2019 cnsunrun. All rights reserved.
-//
+
 
 import Foundation
 

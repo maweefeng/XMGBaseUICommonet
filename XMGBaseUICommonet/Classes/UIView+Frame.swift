@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension UIView {
-    public var width: CGFloat {
+public extension UIView {
+    var width: CGFloat {
         get { return self.frame.size.width }
         set {
             var frame = self.frame
@@ -18,7 +18,7 @@ extension UIView {
         }
     }
 
-    public var height: CGFloat {
+    var height: CGFloat {
         get { return self.frame.size.height }
         set {
             var frame = self.frame
@@ -27,7 +27,7 @@ extension UIView {
         }
     }
     
-    public var size: CGSize  {
+    var size: CGSize  {
         get { return self.frame.size }
         set {
             var frame = self.frame
@@ -36,7 +36,7 @@ extension UIView {
         }
     }
 
-    public var origin: CGPoint {
+    var origin: CGPoint {
         get { return self.frame.origin }
         set {
             var frame = self.frame
@@ -45,7 +45,7 @@ extension UIView {
         }
     }
     
-    public var x: CGFloat {
+    var x: CGFloat {
         get { return self.frame.origin.x }
         set {
             var frame = self.frame
@@ -53,7 +53,7 @@ extension UIView {
             self.frame = frame
         }
     }
-    public var y: CGFloat {
+    var y: CGFloat {
         get { return self.frame.origin.y }
         set {
             var frame = self.frame
@@ -62,21 +62,21 @@ extension UIView {
         }
     }
     
-    public var centerX: CGFloat {
+    var centerX: CGFloat {
         get { return self.center.x }
         set {
             self.center = CGPoint(x: newValue, y: self.center.y)
         }
     }
     
-    public var centerY: CGFloat {
+    var centerY: CGFloat {
         get { return self.center.y }
         set {
             self.center = CGPoint(x: self.center.x, y: newValue)
         }
     }
     
-    public var top : CGFloat {
+    var top : CGFloat {
         get { return self.frame.origin.y }
         set {
             var frame = self.frame
@@ -85,7 +85,7 @@ extension UIView {
         }
     }
     
-    public var bottom : CGFloat {
+    var bottom : CGFloat {
         get { return frame.origin.y + frame.size.height }
         set {
             var frame = self.frame
@@ -94,7 +94,7 @@ extension UIView {
         }
     }
     
-    public var right : CGFloat {
+    var right : CGFloat {
         get { return self.frame.origin.x + self.frame.size.width }
         set {
             var frame = self.frame
@@ -103,7 +103,7 @@ extension UIView {
         }
     }
     
-    public var left : CGFloat {
+    var left : CGFloat {
         get { return self.frame.origin.x }
         set {
             var frame = self.frame
@@ -114,9 +114,9 @@ extension UIView {
     
 }
 
-extension UIView {
+public extension UIView {
     //将当前视图转为UIImage
-    public func asImage() -> UIImage {
+     func asImage() -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
         return renderer.image { rendererContext in
             layer.render(in: rendererContext.cgContext)

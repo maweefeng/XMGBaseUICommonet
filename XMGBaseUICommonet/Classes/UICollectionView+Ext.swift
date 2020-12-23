@@ -1,17 +1,9 @@
-//
-//  UICollectionView+Ext.swift
-//  MainProject
-//
-//  Created by 尚软科技 on 2019/12/18.
-//  Copyright © 2019 cnsunrun. All rights reserved.
-//
+
 
 import UIKit
-
-
-extension UICollectionView{
+public extension UICollectionView{
     ///无闪烁刷新单个Item
-    public func xmg_reloadSingleSection(index:Int){
+     func xmg_reloadSingleSection(index:Int){
         
         UIView.animate(withDuration: 0) {
             self.performBatchUpdates({
@@ -21,7 +13,7 @@ extension UICollectionView{
     }
     
     ///无闪烁刷新单个Item
-    public func xmg_reloadSingleItem(indexPath:IndexPath){
+     func xmg_reloadSingleItem(indexPath:IndexPath){
         
         UIView.animate(withDuration: 0) {
             self.performBatchUpdates({

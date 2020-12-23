@@ -1,10 +1,4 @@
-//
-//  UIImageView+URL.swift
-//  MainProject
-//
-//  Created by 尚软科技 on 2018/10/16.
-//  Copyright © 2018 cnsunrun. All rights reserved.
-//
+
 
 import Foundation
 import SDWebImage
@@ -12,6 +6,56 @@ import FaceAware
 import AVFoundation
 
 public extension UIImageView {
+    
+    func xmg_setImage(with url:URL){
+    
+        self.sd_setImage(with: url) { (image, err, type, nil) in
+            
+            image?.circleImage(callBack: { (image) in
+                self.image = image
+            })
+            
+        }
+//        self.sd_setImage(with: url, completed: nil)
+    }
+    
+    
+    func xmg_setImage(with url:URL, placeholderImage: UIImage? = nil){
+        self.sd_setImage(with: url, placeholderImage: placeholderImage, options: .allowInvalidSSLCertificates) {[weak self] (image, err, cacheType, image_Url) in
+            if err == nil{
+                
+                DispatchQueue.main.async {
+                    if let image = image{
+                        let rect = AVMakeRect(aspectRatio: image.size, insideRect: self?.bounds ?? .zero)
+
+                        let newImage = XMGImageScaleTool.xmg_resizedImage(at: image, for: rect.size)
+                        
+                        self?.image = newImage
+                        
+                    }
+                  
+                }
+            }
+        }
+    }
+    // Downsampling large images for display at smaller size
+    func downsample(imageAt imageURL: URL, to pointSize: CGSize, scale: CGFloat) -> UIImage {
+        let imageSourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
+        let imageSource = CGImageSourceCreateWithURL(imageURL as CFURL, imageSourceOptions)!
+        
+        let maxDimensionInPixels = max(pointSize.width, pointSize.height) * scale
+        let downsampleOptions =
+            [kCGImageSourceCreateThumbnailFromImageAlways: true,
+             kCGImageSourceShouldCacheImmediately: true,
+             kCGImageSourceCreateThumbnailWithTransform: true,
+             kCGImageSourceThumbnailMaxPixelSize: maxDimensionInPixels] as CFDictionary
+        
+        let downsampledImage =
+            CGImageSourceCreateThumbnailAtIndex(imageSource, 0, downsampleOptions)!
+        return UIImage(cgImage: downsampledImage)
+    }
+    
+    
     func xmg_setImageUrl(_ url:String?, placeholderImage:UIImage? = UIImage(named: "tupian")){
         guard let urlString = url else {
             self.image = placeholderImage

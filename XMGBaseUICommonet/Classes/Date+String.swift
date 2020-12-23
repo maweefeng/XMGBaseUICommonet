@@ -1,10 +1,4 @@
-//
-//  Date_String.swift
-//  MainProject
-//
-//  Created by 尚软科技 on 2019/4/17.
-//  Copyright © 2019 cnsunrun. All rights reserved.
-//
+
 
 import UIKit
 

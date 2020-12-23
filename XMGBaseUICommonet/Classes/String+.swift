@@ -9,9 +9,9 @@
 import UIKit
 import CommonCrypto
 
-extension String {
+public extension String {
     
-    public func xmg_stringToDate(_ dateFormat:String = "yyyy-MM-dd HH:mm:ss") -> Date? {
+     func xmg_stringToDate(_ dateFormat:String = "yyyy-MM-dd HH:mm:ss") -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = dateFormat
         formatter.locale = Locale(identifier: "zh_CN")
@@ -19,7 +19,7 @@ extension String {
         return date
     }
     ///获得当前是星期几
-    public func xmg_getWeekDay()->Int{
+     func xmg_getWeekDay()->Int{
         let dateFmt = DateFormatter()
         dateFmt.dateFormat = "yyyy-MM-dd"
         let date = dateFmt.date(from: self)
@@ -28,7 +28,7 @@ extension String {
         let weekday = ((days + 4)%7+7)%7
         return weekday == 0 ? 7 : weekday
     }
-    public func xmg_getStringWeekDay()->String{
+     func xmg_getStringWeekDay()->String{
         if self.count == 0{
             return ""
         }
@@ -56,7 +56,7 @@ extension String {
         }
     }
     
-    public func xmg_md5() -> String {
+     func xmg_md5() -> String {
         let cStrl = cString(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue));
         let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 16);
         CC_MD5(cStrl, CC_LONG(strlen(cStrl!)), buffer);
@@ -68,7 +68,7 @@ extension String {
         free(buffer);
         return md5String;
     }
-    public func xmg_isIncludeChinese() -> Bool {
+     func xmg_isIncludeChinese() -> Bool {
         for ch in self.unicodeScalars {
             // 中文字符范围：0x4e00 ~ 0x9fff
             if (0x4e00 < ch.value  && ch.value < 0x9fff) {
@@ -78,7 +78,7 @@ extension String {
         return false
     }
     
-    public func xmg_transformToPinyin() -> String {
+     func xmg_transformToPinyin() -> String {
         let stringRef = NSMutableString(string: self) as CFMutableString
         // 转换为带音标的拼音
         CFStringTransform(stringRef,nil, kCFStringTransformToLatin, false);
@@ -89,14 +89,14 @@ extension String {
         return pinyin
     }
     
-    public func xmg_transformToPinyinWithoutBlank() -> String {
+     func xmg_transformToPinyinWithoutBlank() -> String {
         var pinyin = self.xmg_transformToPinyin()
         // 去掉空格
         pinyin = pinyin.replacingOccurrences(of: " ", with: "")
         return pinyin
     }
     
-    public func xmg_getPinyinHead() -> String {
+     func xmg_getPinyinHead() -> String {
         // 字符串转换为首字母大写
         let pinyin = self.xmg_transformToPinyin().capitalized
         
@@ -111,42 +111,42 @@ extension String {
         return headPinyinStr
     }
     
-    public func xmg_validateEmail() -> Bool {
+     func xmg_validateEmail() -> Bool {
         let emailRegex: String = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let emailTest: NSPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         return emailTest.evaluate(with: self)
     }
     
-    public func xmg_validateMobile() -> Bool {
+     func xmg_validateMobile() -> Bool {
         let phoneRegex: String = "^((13[0-9])|(15[^4,\\D])|(18[0,0-9])|(17[0,0-9]))\\d{8}$"
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
         return phoneTest.evaluate(with: self)
     }
     
-    public func xmg_trimmedMobile() -> String {
+     func xmg_trimmedMobile() -> String {
         let toremove = CharacterSet(charactersIn: "+*#0123456789").inverted
         return components(separatedBy: toremove).joined()
     }
     
-    public func cn_widthForComment(fontSize: CGFloat, height: CGFloat = 15) -> CGFloat {
+     func cn_widthForComment(fontSize: CGFloat, height: CGFloat = 15) -> CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
         let rect = NSString(string: self).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         return ceil(rect.width)
     }
     
-    public func cn_heightForComment(fontSize: CGFloat, width: CGFloat) -> CGFloat {
+     func cn_heightForComment(fontSize: CGFloat, width: CGFloat) -> CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
         let rect = NSString(string: self).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         return ceil(rect.height)
     }
     
-    public func cn_heightForComment(fontSize: CGFloat, width: CGFloat, maxHeight: CGFloat) -> CGFloat {
+     func cn_heightForComment(fontSize: CGFloat, width: CGFloat, maxHeight: CGFloat) -> CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
         let rect = NSString(string: self).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         return ceil(rect.height)>maxHeight ? maxHeight : ceil(rect.height)
     }
     
-    public static func xmg_generateRandomString() -> String {
+     static func xmg_generateRandomString() -> String {
         let knumber = 32
         let source_string = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         var resultStr = ""
@@ -160,7 +160,7 @@ extension String {
         return resultStr
     }
     
-    public static func xmg_generateRandomJPEGString(header: String,type:String) -> String {
+     static func xmg_generateRandomJPEGString(header: String,type:String) -> String {
         let knumber = 32
         let source_string = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         var resultStr = ""
@@ -177,7 +177,7 @@ extension String {
         
     }
     
-    public static func xmg_generateRandomWavString(header: String,interval:String) -> String {
+     static func xmg_generateRandomWavString(header: String,interval:String) -> String {
         let knumber = 32
         let source_string = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         var resultStr = ""
@@ -193,13 +193,13 @@ extension String {
         return cosPath
     }
     
-    public static func xmg_getSeconds(_ header: String) -> Int{
+     static func xmg_getSeconds(_ header: String) -> Int{
         let suffix = header.components(separatedBy: "-").last
         let seconds = suffix?.components(separatedBy: ".").first
         let intSeconds = Int(seconds ?? "0")
         return intSeconds ?? 0
     }
-    public static func xmg_changeSecondToString(_ seconds: Int) -> String{
+     static func xmg_changeSecondToString(_ seconds: Int) -> String{
         let time = seconds
         if seconds < 60{
             let second = String(format: "%.2d", time)
@@ -222,7 +222,7 @@ extension String {
         }
     }
     
-    public static func xmg_changeSecondToChineseString(_ seconds: Int) -> String{
+     static func xmg_changeSecondToChineseString(_ seconds: Int) -> String{
         let time = seconds
         if seconds < 60{
             let second = String(format: "%d", seconds)
@@ -257,7 +257,7 @@ extension String {
         }
     }
     
-    public static func xmg_getDurationString(_ header: String) -> String{
+     static func xmg_getDurationString(_ header: String) -> String{
         let suffix = header.components(separatedBy: "-").last
         let seconds = suffix?.components(separatedBy: ".").first
         let intSeconds = Int(seconds ?? "0")
@@ -288,7 +288,7 @@ extension String {
         }
     }
     
-    public static func xmg_getWavTimevalString(_ header: String) -> String{
+     static func xmg_getWavTimevalString(_ header: String) -> String{
         
         let suffix = header.components(separatedBy: "-").last
         let seconds = suffix?.components(separatedBy: ".").first
@@ -311,14 +311,14 @@ extension String {
     
     /// String使用下标截取字符串
     /// string[index] 例如："abcdefg"[3] // c
-    public subscript (i:Int)->String{
+     subscript (i:Int)->String{
         let startIndex = self.index(self.startIndex, offsetBy: i)
         let endIndex = self.index(startIndex, offsetBy: 1)
         return String(self[startIndex..<endIndex])
     }
     /// String使用下标截取字符串
     /// string[index..<index] 例如："abcdefg"[3..<4] // d
-    public subscript (r: Range<Int>) -> String {
+     subscript (r: Range<Int>) -> String {
         get {
             let startIndex = self.index(self.startIndex, offsetBy: r.lowerBound)
             let endIndex = self.index(self.startIndex, offsetBy: r.upperBound)
@@ -327,7 +327,7 @@ extension String {
     }
     /// String使用下标截取字符串
     /// string[index,length] 例如："abcdefg"[3,2] // de
-    public subscript (index:Int , length:Int) -> String {
+     subscript (index:Int , length:Int) -> String {
         get {
             let startIndex = self.index(self.startIndex, offsetBy: index)
             let endIndex = self.index(startIndex, offsetBy: length)
@@ -335,11 +335,11 @@ extension String {
         }
     }
     // 截取 从头到i位置
-    public func xmg_substring(to:Int) -> String{
+     func xmg_substring(to:Int) -> String{
         return self[0..<to]
     }
     // 截取 从i到尾部
-    public func xmg_substring(from:Int) -> String{
+     func xmg_substring(from:Int) -> String{
         return self[from..<self.count]
     }
     
@@ -350,7 +350,7 @@ extension String {
     ///   - color: 颜色
     ///   - font: 字体
     /// - Returns: 富文本
-    public func xmg_changePartOfStringStyle(_ rangeString:String, color:UIColor, font:UIFont? = UIFont.systemFont(ofSize: 14))->NSMutableAttributedString
+     func xmg_changePartOfStringStyle(_ rangeString:String, color:UIColor, font:UIFont? = UIFont.systemFont(ofSize: 14))->NSMutableAttributedString
     {
         let attriStr:NSMutableAttributedString = NSMutableAttributedString(string:self)
         let range = NSMakeRange(NSString(string: self).range(of: rangeString).location, NSString(string: self).range(of: rangeString).length)
@@ -362,7 +362,7 @@ extension String {
         return attriStr
     }
     
-    public func xmg_insertImageGerenateAttributeString(imageName:String,color:UIColor, font:UIFont? = UIFont.systemFont(ofSize: 14)) ->NSMutableAttributedString{
+     func xmg_insertImageGerenateAttributeString(imageName:String,color:UIColor, font:UIFont? = UIFont.systemFont(ofSize: 14)) ->NSMutableAttributedString{
         
         
         //定义富文本即有格式的字符串
@@ -380,7 +380,7 @@ extension String {
         return attributedStrM
     }
     
-    public func xmg_changePartOfStringStyleWithLine(_ rangeString:String, color:UIColor, font:UIFont)->NSMutableAttributedString
+     func xmg_changePartOfStringStyleWithLine(_ rangeString:String, color:UIColor, font:UIFont)->NSMutableAttributedString
     {
         let attriStr:NSMutableAttributedString = NSMutableAttributedString(string:self)
         let range = NSMakeRange(NSString(string: self).range(of: rangeString).location, NSString(string: self).range(of: rangeString).length)
@@ -392,7 +392,7 @@ extension String {
         return attriStr
     }
     
-    public func xmg_changePartOfStringStyleWithDeleteLine(_ rangeString:String, color:UIColor, font:UIFont)->NSMutableAttributedString
+     func xmg_changePartOfStringStyleWithDeleteLine(_ rangeString:String, color:UIColor, font:UIFont)->NSMutableAttributedString
     {
         let attriStr:NSMutableAttributedString = NSMutableAttributedString(string:self)
         let range = NSMakeRange(NSString(string: self).range(of: rangeString).location, NSString(string: self).range(of: rangeString).length)
@@ -406,7 +406,7 @@ extension String {
     }
     
     
-    public func xmg_substring(location index:Int, length:Int) -> String {
+     func xmg_substring(location index:Int, length:Int) -> String {
         if self.count > index {
             let startIndex = self.index(self.startIndex, offsetBy: index)
             let endIndex = self.index(self.startIndex, offsetBy: index + length)
@@ -417,7 +417,7 @@ extension String {
         }
     }
     
-    public func xmg_substring(range:NSRange) -> String {
+     func xmg_substring(range:NSRange) -> String {
         if self.count > range.location {
             let startIndex = self.index(self.startIndex, offsetBy: range.location)
             let endIndex = self.index(self.startIndex, offsetBy: range.location + range.length)
@@ -429,7 +429,7 @@ extension String {
     }
     
     
-    public func xmg_urlScheme(scheme:String) -> URL? {
+     func xmg_urlScheme(scheme:String) -> URL? {
         if let url = URL.init(string: self) {
             var components = URLComponents.init(url: url, resolvingAgainstBaseURL: false)
             components?.scheme = scheme
@@ -438,7 +438,7 @@ extension String {
         return nil
     }
     
-    public static func xmg_readJson2DicWithFileName(fileName:String) -> [String:Any] {
+     static func xmg_readJson2DicWithFileName(fileName:String) -> [String:Any] {
         let path = Bundle.main.path(forResource: fileName, ofType: "json") ?? ""
         var dict = [String:Any]()
         do{
@@ -450,7 +450,7 @@ extension String {
         return dict
     }
     
-    public static func xmg_format(decimal:Float, _ maximumDigits:Int = 1, _ minimumDigits:Int = 1) ->String? {
+     static func xmg_format(decimal:Float, _ maximumDigits:Int = 1, _ minimumDigits:Int = 1) ->String? {
         let number = NSNumber(value: decimal)
         let numberFormatter = NumberFormatter()
         numberFormatter.maximumFractionDigits = maximumDigits //设置小数点后最多2位
@@ -458,7 +458,7 @@ extension String {
         return numberFormatter.string(from: number)
     }
     
-    public static func xmg_formatCount(count:NSInteger) -> String {
+     static func xmg_formatCount(count:NSInteger) -> String {
         if count < 10000  {
             return String.init(count)
         } else {
@@ -468,11 +468,11 @@ extension String {
     
     
     
-    public func xmg_singleLineSizeWithText(font:UIFont) -> CGSize {
+     func xmg_singleLineSizeWithText(font:UIFont) -> CGSize {
         return self.size(withAttributes: [NSAttributedString.Key.font : font])
     }
     
-    public func xmg_singleLineSizeWithAttributeText(font:UIFont) -> CGSize {
+     func xmg_singleLineSizeWithAttributeText(font:UIFont) -> CGSize {
         let attributes = [NSAttributedString.Key.font:font]
         let attString = NSAttributedString(string: self,attributes: attributes)
         let framesetter = CTFramesetterCreateWithAttributedString(attString)
@@ -483,7 +483,7 @@ extension String {
     
     /// Hex String to Data
     
-    public func xmg_hexadecimal() -> Data? {
+     func xmg_hexadecimal() -> Data? {
            var data = Data(capacity: self.count / 2)
            let regex = try! NSRegularExpression(pattern: "[0-9a-f]{1,2}", options: .caseInsensitive)
            regex.enumerateMatches(in: self, range: NSMakeRange(0, utf16.count)) { match, flags, stop in

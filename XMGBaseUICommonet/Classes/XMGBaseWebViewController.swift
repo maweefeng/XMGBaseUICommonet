@@ -1,10 +1,3 @@
-//
-//  BaseWebViewController.swift
-//  MainProject
-//
-//  Created by 尚软科技 on 2019/12/3.
-//  Copyright © 2019 cnsunrun. All rights reserved.
-//
 
 import UIKit
 import WebKit
@@ -19,7 +12,7 @@ public class XMGBaseWebViewController: XMGBaseViewController {
 
     var destionationUrl:String=""
     private var webView:WKWebView!
-    convenience init(destinationURL:String) {
+    public convenience init(destinationURL:String) {
         self.init()
         destionationUrl = destinationURL
     }

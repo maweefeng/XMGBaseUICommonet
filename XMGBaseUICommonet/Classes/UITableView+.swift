@@ -1,17 +1,11 @@
-//
-//  UITableView+EXT.swift
-//  MainProject
-//
-//  Created by 尚软科技 on 2019/12/23.
-//  Copyright © 2019 cnsunrun. All rights reserved.
-//
+
 
 import UIKit
 
-extension UITableView{
+public extension UITableView{
     
     ///无闪烁刷新单个Item
-    public func xmg_reloadSingleItem(indexPath:IndexPath){
+     func xmg_reloadSingleItem(indexPath:IndexPath){
         
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0) {

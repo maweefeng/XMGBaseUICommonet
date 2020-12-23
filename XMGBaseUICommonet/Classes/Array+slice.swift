@@ -1,10 +1,4 @@
-//
-//  Array+slice.swift
-//  BaseUICommponet
-//
-//  Created by 尚软科技 on 2020/8/13.
-//  Copyright © 2020 小马科技. All rights reserved.
-//
+
 
 import Foundation
 public extension Sequence {
